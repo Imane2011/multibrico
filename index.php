@@ -65,3 +65,8 @@ include('views/header.php');
 echo $template;
 include('views/footer.php');
 ?>
+
+
+
+
+<!-- Test test test  -->
