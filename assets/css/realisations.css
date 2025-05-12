@@ -1,0 +1,227 @@
+
+
+/* .carousel {
+    position: relative;
+    width: 500px;
+    height: 300px;
+    overflow: hidden;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #aaa;
+  }
+   
+  .slides {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+   
+  .slide {
+    min-width: 100%;
+    transition: opacity 0.5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+   
+  .slide.active {
+    opacity: 1;
+    position: relative;
+  }
+   
+  button.prev, button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+   
+  button.prev { left: 10px; }
+  button.next { right: 10px; } */
+
+  /* .carousel{
+    height: 100vh;
+    width: 50vw;
+    position: relative;
+    background-color: bisque;
+     display: flex;
+    justify-content: center;
+     align-items: center;
+   
+  }
+
+  .slide img{
+    display: block;
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+
+  }
+
+  .carousel button{
+    position: absolute;
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 2.6rem;
+    z-index: 2;
+    cursor: pointer;
+    transform: translateY(-50%);
+    top: 50%;
+  }
+
+  #prev{
+    left: 5px;
+  }
+
+  #next{
+    right: 5px;
+  }
+
+  .carousel li{
+    list-style: none;
+  }
+
+  .slide{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+  }
+
+  .slide.active{
+    opacity: 1;
+
+  } */
+
+
+  @font-face {
+    font-family: "openSans";
+    src:
+      local("OpenSans"),
+      url("../fonts/OpenSans-VariableFont_wdth\,wght.ttf")
+    }
+
+  .realisations{
+   
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    justify-items: center;
+    
+    
+  }
+
+  .titreRealisations{
+    margin-top: 2%;
+    font-size: 2.5rem;
+    font-family: "OpenSans";
+  }
+  .carousel{
+    background-color: beige;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 90%;
+    position: relative;
+    margin: 2%;
+  }
+
+  .slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* position: relative; */
+    /* height: 300px;
+    width: 100%; */
+  }
+
+  .slide img{
+    position: absolute;
+    width: 700px;
+    height: 600px;
+    opacity: 0;
+  }
+
+  .slide.active{
+    opacity: 1;
+  }
+
+  .carousel button{
+    position: absolute;
+    background: none;
+    border: none;
+    /* outline: none; */
+    font-size: 2.6rem;
+    /* z-index: 2; */
+    cursor: pointer;
+    transform: translateY(-50%);
+    top: 50%;
+  }
+
+  #prev{
+    left: 50px;
+  }
+
+  #next{
+    right: 50px;
+  }
+
+
+/* Media Queries pour les écrans plus petits */
+@media (max-width: 768px) {
+  .carousel {
+      height: 70vh; /* Ajuster la hauteur pour les tablettes et mobiles */
+  }
+
+  .slides {
+      height: 200px; /* Ajuster la hauteur pour les images */
+  }
+
+  .slide img {
+    width: 250px; 
+    height: 220px;
+  }
+
+  .carousel button {
+      font-size: 2rem; /* Réduire la taille des boutons */
+  }
+
+  #prev{
+    left: 10px;
+  }
+
+  #next{
+    right: 10px;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .carousel {
+      height: 80vh; /* Ajuster encore la hauteur pour les petits écrans */
+  }
+
+  .slides {
+      height: 150px; /* Ajuster la hauteur pour les images */
+  }
+
+  .slide img {
+   width: 100px;
+   height: 100px;
+  
+}
+
+  .carousel button {
+      font-size: 1.5rem; /* Réduire la taille des boutons */
+  }
+}

@@ -1,0 +1,61 @@
+@font-face {
+    font-family: "openSans";
+    src:
+      local("OpenSans"),
+      url("../fonts/OpenSans-VariableFont_wdth\,wght.ttf")
+    }
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+.containerServices{
+    /* margin-top: 2%; */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 2%;
+
+
+}
+
+ .titreServices{
+    margin-top: 2%;
+    font-size: 2.5rem;
+    text-align: center;
+    font-family: "OpenSans";
+} 
+
+.service-item{
+    margin: 2%;
+    /* border: 1px solid black; */
+    box-shadow: 10px 5px 8px #D8A848;
+}
+
+.imgService{
+    width: 95%;
+    margin: 2%;
+    
+
+}
+
+.titreServices{
+    font-size: 2.5rem;
+}
+
+.paragService{
+    padding-bottom: 5%;
+    padding-left: 2%;
+
+}
+
+h2{
+   margin-left: 2%;
+   margin-bottom: 2%;
+}
+
+@media (max-width:767px){
+    .containerServices{
+        grid-template-columns: 1fr;
+    }
+}
