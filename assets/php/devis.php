@@ -64,14 +64,15 @@ class Demande{
             $mail->addAddress("amri.imane018@gmail.com"); //Email pour recevoir les mails (nom optionel)
 
             //Content
-            $fichier = file_get_contents('../../views/contact.html');
+            $fichier = file_get_contents('../../views/messageDevis.html');
             $fichier = str_replace('[PRENOM]',$this->prenom,$fichier);
             $fichier = str_replace('[NOM]',$this->nom,$fichier);
-            $fichier = str_replace('[TEL]',$this->tel,$fichier);
             $fichier = str_replace('[MAIL]',$this->email,$fichier);
-            $fichier = str_replace('[MESSAGE]',$this->info,$fichier);
+            $fichier = str_replace('[TEL]',$this->tel,$fichier);
+            $fichier = str_replace('[SERVICE]',$this->service,$fichier);
+            $fichier = str_replace('[INFO]',$this->info,$fichier);
             $mail->isHTML(true); //Set email format to HTML
-            $mail->Subject = $this->service; // Objet du message
+            $mail->Subject = "Demande de devis pour" . $this->service; // Objet du message
             $mail->Body    = $fichier; // Contenu du message
             $mail->AltBody = $fichier; // Contenu alternatif du message
 

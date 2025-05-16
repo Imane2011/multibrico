@@ -65,11 +65,12 @@ public function envoyerMail(){
             $mail->addAddress("amri.imane018@gmail.com"); //Email pour recevoir les mails (nom optionel)
 
             //Content
-            $fichier = file_get_contents('../../views/contact.html');
+            $fichier = file_get_contents('../../views/message.html');
             $fichier = str_replace('[PRENOM]',$this->prenom,$fichier);
             $fichier = str_replace('[NOM]',$this->nom,$fichier);
-            $fichier = str_replace('[TEL]',$this->tel,$fichier);
             $fichier = str_replace('[MAIL]',$this->email,$fichier);
+            $fichier = str_replace('[TEL]',$this->tel,$fichier);
+            $fichier = str_replace('[SUJET]',$this->sujet,$fichier);
             $fichier = str_replace('[MESSAGE]',$this->message,$fichier);
             $mail->isHTML(true); //Set email format to HTML
             $mail->Subject = $this->sujet; // Objet du message
@@ -86,7 +87,7 @@ public function envoyerMail(){
 
     if(isset($_POST["submit"]) && !empty($_POST["nom"]) && !empty($_POST["prenom"]) && !empty($_POST["email"]) && !empty($_POST["telephone"]) && !empty($_POST["sujet"]) && !empty($_POST["message"])){
     // var_dump($_POST);
-    $contact = new Contact($_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['telephone'], $_POST["message"], $_POST['sujet']);
+    $contact = new Contact($_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['telephone'], $_POST['sujet'], $_POST["message"]);
     $contact->envoyerMessage($dbh);
 }
 
