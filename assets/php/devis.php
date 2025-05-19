@@ -85,7 +85,7 @@ class Demande{
 }
 
     if(isset($_POST["submitDevis"]) && !empty($_POST["nom"]) && !empty($_POST["prenom"]) && !empty($_POST["email"]) && !empty($_POST["telephone"]) && !empty($_POST["services"]) && !empty($_POST["info"])){
-    var_dump($_POST);
+    // var_dump($_POST);
     $contact = new Demande($_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['telephone'], $_POST['services'], $_POST["info"]);
     $contact->envoyerDevis($dbh);
 }
