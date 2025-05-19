@@ -6,10 +6,10 @@ $user = "root";
 $password = "";
 $dbh = new PDO($dsn, $user, $password,array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''));
 
-require ('../../vendor/autoload.php');
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
+// require ('../../vendor/autoload.php');
+// use PHPMailer\PHPMailer\PHPMailer;
+// use PHPMailer\PHPMailer\SMTP;
+// use PHPMailer\PHPMailer\Exception;
 
 
 class Demande{
@@ -40,51 +40,52 @@ class Demande{
         $req->bindValue(':info',$this->info,PDO::PARAM_STR);
         
         if($req->execute()){
-            $this->envoyerMail();
+            // $this->envoyerMail();
            echo "Message bien envoyé !";
         } else {
             echo "Erreur lors de l'envois du message !";
         }
     }
 
-    public function envoyerMail(){
-        $mail = new PHPMailer(true);
-        try {
-            // $mail->SMTPDebug = SMTP::DEBUG_SERVER; //Pour débugguer              
-            $mail->isSMTP();                                            
-            $mail->Host       = 'dwwm2425.fr';      //Nom de domaine    
-            $mail->SMTPAuth   = true;                                   
-            $mail->Username   = 'contact@dwwm2425.fr'; //User name      
-            $mail->Password   = '!cci18000Bourges!';  //Mot de passe    
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            
-            $mail->Port       = 465;                                    
+    // public function envoyerMail(){
+    //     $mail = new PHPMailer(true);
+    //     try {
+    //         $mail->SMTPDebug = SMTP::DEBUG_SERVER; //Pour débugguer              
+    //         $mail->isSMTP();                                            
+    //         $mail->Host       = 'smtp.gmail.com';      //Nom de domaine    
+    //         $mail->SMTPAuth   = true;                                   
+    //         $mail->Username   = 'amri.dahlias18@gmail.com'; //User name      
+    //         $mail->Password   = 'Berkane4918%';  //Mot de passe    
+    //         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;            
+    //         $mail->Port       = 587;                                    
 
-            //Recipients
-            $mail->setFrom('no-reply@dww2425.fr', 'Formulaire contact from - monSite'); // Email d'envoi
-            $mail->addAddress("amri.imane018@gmail.com"); //Email pour recevoir les mails (nom optionel)
+    //         //Recipients
+    //         $mail->setFrom('amri.dahlias18@gmail.com', 'multibricolage'); // Email d'envoi
+    //         $mail->addAddress("amri.imane018@gmail.com"); //Email pour recevoir les mails (nom optionel)
 
-            //Content
-            $fichier = file_get_contents('../../views/contact.html');
-            $fichier = str_replace('[PRENOM]',$this->prenom,$fichier);
-            $fichier = str_replace('[NOM]',$this->nom,$fichier);
-            $fichier = str_replace('[TEL]',$this->tel,$fichier);
-            $fichier = str_replace('[MAIL]',$this->email,$fichier);
-            $fichier = str_replace('[MESSAGE]',$this->info,$fichier);
-            $mail->isHTML(true); //Set email format to HTML
-            $mail->Subject = $this->service; // Objet du message
-            $mail->Body    = $fichier; // Contenu du message
-            $mail->AltBody = $fichier; // Contenu alternatif du message
+    //         //Content
+    //         $fichier = file_get_contents('../../views/messageDevis.html');
+    //         $fichier = str_replace('[PRENOM]',$this->prenom,$fichier);
+    //         $fichier = str_replace('[NOM]',$this->nom,$fichier);
+    //         $fichier = str_replace('[MAIL]',$this->email,$fichier);
+    //         $fichier = str_replace('[TEL]',$this->tel,$fichier);
+    //         $fichier = str_replace('[SERVICE]',$this->service,$fichier);
+    //         $fichier = str_replace('[INFO]',$this->info,$fichier);
+    //         $mail->isHTML(true); //Set email format to HTML
+    //         $mail->Subject = "Demande de devis pour" . $this->service; // Objet du message
+    //         $mail->Body    = $fichier; // Contenu du message
+    //         $mail->AltBody = $fichier; // Contenu alternatif du message
 
-            $mail->send();
-            echo 'Message has been sent';
-        } catch (Exception $e) {
-            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-        }
-    }
+    //         $mail->send();
+    //         echo 'Message has been sent';
+    //     } catch (Exception $e) {
+    //         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    //     }
+    // }
 }
 
     if(isset($_POST["submitDevis"]) && !empty($_POST["nom"]) && !empty($_POST["prenom"]) && !empty($_POST["email"]) && !empty($_POST["telephone"]) && !empty($_POST["services"]) && !empty($_POST["info"])){
-    var_dump($_POST);
+    // var_dump($_POST);
     $contact = new Demande($_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['telephone'], $_POST['services'], $_POST["info"]);
     $contact->envoyerDevis($dbh);
 }
